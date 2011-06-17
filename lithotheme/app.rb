@@ -2,9 +2,10 @@ require 'sinatra/base'
 class Lithos2 < Sinatra::Base
   set :root, File.dirname(__FILE__)
   get '/' do
-    haml :foo
+    @posts = Post.all
+    haml :index
   end
   get '/:id' do
-    haml :foo
+    haml :post
   end
 end

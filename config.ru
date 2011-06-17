@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'haml'
+require 'lithomodel/model'
 require 'lithotheme/app'
 require 'admin/app'
 map '/admin' do
