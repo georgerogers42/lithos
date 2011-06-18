@@ -1,11 +1,27 @@
+require 'sinatra_warden/sinatra'
 require 'sinatra/base'
+
 class Admin < Sinatra::Base
+  enable :sessions
   set :root, File.dirname(__FILE__)
   get '/' do
-    haml :index
+    slim :index
+  end
+  post '/' do
+    redirect to('/')
+  end
+  get '/user' do
+    slim :login
+  end
+  post '/user' do
+    p = User.new
+    p.email = params[:email]
+    p.password = params[:password]
+    p.save
+    redirect to('/')
   end
   get '/post' do
-    haml :new
+    slim :new
   end
   post '/post' do
     p = Post.new

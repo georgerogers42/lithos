@@ -1,4 +1,7 @@
 - @posts.each do |post|
-    %p=post.title
-    %p=post.body
-    %p=post.created_at
+  %h1
+    %a{:href=>url(post.id.to_s)}=post.title
+  %p=post.body
+  %p
+    -if post.created_at
+      %em="#{post.created_at.year}-#{post.created_at.month}-#{post.created_at.day}"

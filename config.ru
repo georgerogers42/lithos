@@ -1,10 +1,14 @@
 require 'rubygems'
-require 'haml'
+require 'warden'
 require 'lithomodel/model'
 require 'lithotheme/app'
 require 'admin/app'
-map '/admin' do
-  run Admin
+require 'haml'
+map '/admin/' do
+  a = Rack::Auth::Basic.new(Admin) do |user,pass|
+    User.authenticate(user,pass)
+  end
+  run a
 end
 map '/' do
   run Lithos2
