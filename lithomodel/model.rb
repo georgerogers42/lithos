@@ -16,7 +16,7 @@ class User
   has n, :posts
   def self.authenticate(user,password)
     u = User.first(:name => user)
-    u.pass == password if u
+    u if u.pass == password
   end
 end
 DataMapper.finalize

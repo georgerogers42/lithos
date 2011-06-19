@@ -1,9 +1,9 @@
 require 'rubygems'
-require 'warden'
 require 'lithomodel/model'
+require 'login/app'
 require 'lithotheme/app'
 require 'admin/app'
-require 'haml'
+use Rack::Session::Cookie
 map '/admin/' do
   use LoginManager
   run Admin

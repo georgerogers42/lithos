@@ -1,9 +1,10 @@
-require 'sinatra_warden/sinatra'
 require 'sinatra/base'
 
 class Admin < Sinatra::Base
-  enable :sessions
   set :root, File.dirname(__FILE__)
+  before do
+    redirect to('/login') unless env["auth"]
+  end
   get '/' do
     slim :index
   end
@@ -11,7 +12,7 @@ class Admin < Sinatra::Base
     redirect to('/')
   end
   get '/user' do
-    slim :login
+    slim :user
   end
   post '/user' do
     p = User.new
@@ -28,7 +29,8 @@ class Admin < Sinatra::Base
     p.title      = params[:title]
     p.body       = params[:body]
     p.created_at = Time.now
-    p.save!
+    p.user = env["auth"]
+    p.save
     redirect(to('/'))
   end
 end
