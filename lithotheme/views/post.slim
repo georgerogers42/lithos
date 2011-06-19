@@ -1,6 +1,6 @@
 h1=@post.title
 p=@post.body
 -if @post.created_at
-  em #{@post.created_at.year}-#{@post.created_at.month}-#{@post.created_at.day} By #{post.user.name}
+  em #{@post.created_at.year}-#{@post.created_at.month}-#{@post.created_at.day} By #{@post.user.name}
 p
   a href=url("/") Back
