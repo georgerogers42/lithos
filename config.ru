@@ -1,4 +1,5 @@
 require 'rubygems'
+LOAD_PATH << "."
 require 'lithomodel/model'
 require 'login/app'
 require 'lithotheme/app'

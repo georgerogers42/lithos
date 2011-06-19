@@ -1,1 +1,1 @@
-web: thin -I.
+web: thin
