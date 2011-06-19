@@ -1,7 +1,6 @@
 form(method="POST")
-  | Title
   input type="text" name="title"
-  br
-  | Body
-  textarea type="text" name="body"
-  input(type="submit")
+  p Title
+  textarea type="text" name="body" rows=40 cols=80
+  p Body
+  input type="submit" value="Create Post"
