@@ -1,6 +1,6 @@
 - @posts.each do |post|
   h1
-    a href=url(post.id.to_s) =post.title
+    a href=url(post.title) =post.title
   p=post.body
   p
     -if post.created_at
