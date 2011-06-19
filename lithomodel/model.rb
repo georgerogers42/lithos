@@ -1,5 +1,5 @@
 require 'datamapper'
-DataMapper.setup(:default,ENV['DATABASE_URL'] || 'sqlite://blog.db')
+DataMapper.setup(:default,ENV['DATABASE_URL'])
 class Post
   include DataMapper::Resource
   property :id, Serial
