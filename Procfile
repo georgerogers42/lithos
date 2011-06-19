@@ -1,1 +1,1 @@
-web: thin
+web: thin start
