@@ -8,7 +8,7 @@ class Lithos2 < Sinatra::Base
   end
   set :root, File.dirname(__FILE__)
   get '/' do
-    @posts = Post.all.sort_by(&:posted_at).reverse
+    @posts = Post.all.sort_by(&:created_at).reverse
     slim :index
   end
   get '/:id' do
