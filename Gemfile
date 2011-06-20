@@ -1,6 +1,9 @@
 source :rubygems
 gem 'slim'
-gem 'shotgun'
+group :development do
+  gem 'shotgun'
+  gem 'dm-sqlite-adapter'
+end
 gem 'sinatra'
 gem 'pg'
 gem 'datamapper'
